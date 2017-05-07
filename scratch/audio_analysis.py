@@ -6,7 +6,7 @@ from scipy.fftpack import fft
 import numpy as np
 import os
 
-INPUT_DIR = os.path.join(os.path.dirname(__file__), 'test_files')
+INPUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'test_files')
 
 
 def plot_waveform(input_file, window):
