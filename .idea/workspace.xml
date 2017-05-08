@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91059201-50b1-47a0-b54e-2b7608fbf781" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/ai/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/audio/bandpass.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/audio/bandpass.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_bandpass.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/audio/__init__.py" afterPath="$PROJECT_DIR$/spectral_loudness/audio/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plotting/__init__.py" afterPath="$PROJECT_DIR$/spectral_loudness/plotting/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/plotting/plot_audio.py" afterPath="$PROJECT_DIR$/spectral_loudness/plotting/plot_audio.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test_files/test_file1.wav" afterPath="$PROJECT_DIR$/spectral_loudness/test_files/test_file1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/audio/engine.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test/test_engine.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness.py" afterPath="$PROJECT_DIR$/spectral_loudness.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" afterPath="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,35 +17,92 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/PySciCalProject$bandpass.coverage" NAME="bandpass Coverage Results" MODIFIED="1494123823266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audio" />
-    <SUITE FILE_PATH="coverage/PySciCalProject$Test_Bandpass.coverage" NAME="Test Bandpass Coverage Results" MODIFIED="1494211942925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spectral_loudness/test" />
+    <SUITE FILE_PATH="coverage/PySciCalProject$Test_Bandpass.coverage" NAME="Test Bandpass Coverage Results" MODIFIED="1494212879296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spectral_loudness/test" />
+    <SUITE FILE_PATH="coverage/PySciCalProject$Test_Engine.coverage" NAME="Test Engine Coverage Results" MODIFIED="1494219280027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spectral_loudness/test/" />
     <SUITE FILE_PATH="coverage/PySciCalProject$audio_analysis.coverage" NAME="audio_analysis Coverage Results" MODIFIED="1494130524312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_bandpass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spectral_loudness.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.6008584">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="test_bandpass.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="376">
+                  <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="67" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="spectral_loudness.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="engine.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/engine.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="691">
+                  <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test_engine.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_engine.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bandpass.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/bandpass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#24#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="test_engine.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_engine.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -99,6 +147,9 @@
         <option value="$PROJECT_DIR$/spectral_loudness/spectral_loudness.py" />
         <option value="$PROJECT_DIR$/spectral_loudness/__init__.py" />
         <option value="$PROJECT_DIR$/spectral_loudness.py" />
+        <option value="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" />
+        <option value="$PROJECT_DIR$/spectral_loudness/audio/engine.py" />
+        <option value="$PROJECT_DIR$/spectral_loudness/test/test_engine.py" />
       </list>
     </option>
   </component>
@@ -166,7 +217,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scratch" />
+              <option name="myItemId" value="spectral_loudness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PySciCalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PySciCalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spectral_loudness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -200,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Test Bandpass">
+  <component name="RunManager" selected="Python tests.Test Engine">
     <configuration default="false" name="bandpass" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -421,10 +494,28 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="3">
+    <configuration default="false" name="Test Engine" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="$USER_HOME$/.pyenv/versions/cal_342/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spectral_loudness/test/" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PySciCalProject" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/spectral_loudness/test/test_engine.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.audio_analysis" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Test Bandpass" />
-      <item index="2" class="java.lang.String" itemvalue="Python.bandpass" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Test Engine" />
+      <item index="3" class="java.lang.String" itemvalue="Python.bandpass" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -457,56 +548,63 @@
       <option name="project" value="LOCAL" />
       <updated>1494143924144</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Implemented spectrum_loudness.py frontent&#10;- Added filter_bank methoed to BandpassFilterBank&#10;- Added filter_bank unit test">
+      <created>1494212369215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494212369215</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 33m 17s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 37m 36s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 36m 06s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 39m 41s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 40m 04s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 42m 36s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 43m 10s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 42m 45s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 48m 03s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 43m 34s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 15h 49m 53s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 45m 27s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 16h 30m 44s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 47m 36s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 16h 31m 45s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 49m 39s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 18h 19m 01s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 52m 56s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
-    <history-entry file="Test_Bandpass - 2017.05.07 at 19h 52m 23s.xml">
-      <configuration name="Test Bandpass" configurationId="tests" />
+    <history-entry file="Test_Engine - 2017.05.07 at 21h 53m 18s.xml">
+      <configuration name="Test Engine" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2074392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2074392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7180723" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45851216" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3762518" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6698795" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43373495" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46369427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44578314" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -546,10 +644,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="PyCharm project files" />
     <MESSAGE value="- Implemented BandpassFilterBank class&#10;    - basic FIR filter &#10;    - test_bandpass contains unit tests&#10;    &#10;- Implemented PlotAudio class&#10;    - plots FFT&#10;    - plots Waveform&#10;    - plots Filter response" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Implemented BandpassFilterBank class&#10;    - basic FIR filter &#10;    - test_bandpass contains unit tests&#10;    &#10;- Implemented PlotAudio class&#10;    - plots FFT&#10;    - plots Waveform&#10;    - plots Filter response" />
+    <MESSAGE value="- Implemented spectrum_loudness.py frontent&#10;- Added filter_bank methoed to BandpassFilterBank&#10;- Added filter_bank unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Implemented spectrum_loudness.py frontent&#10;- Added filter_bank methoed to BandpassFilterBank&#10;- Added filter_bank unit test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/spectral_loudness/audio/engine.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -557,7 +663,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -566,7 +672,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -617,7 +725,7 @@
         <state relative-caret-position="360">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -636,7 +744,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -669,6 +779,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="1374" column="0" lean-forward="false" selection-start-line="1374" selection-start-column="0" selection-end-line="1374" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -676,6 +787,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,6 +795,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -700,30 +813,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/bandpass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spectral_loudness/plotting/plot_audio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -797,17 +892,57 @@
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/bandpass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="67" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_loudness/test/test_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,8 +2,8 @@ import os
 
 import numpy as np
 import pytest
-from audio.bandpass import BandpassFilterBank
-from plotting.plot_audio import PlotAudio
+from ..audio.bandpass import BandpassFilterBank
+from ..plotting.plot_audio import PlotAudio
 from scipy.io import wavfile as wav
 
 PLOT = False
