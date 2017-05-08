@@ -5,13 +5,18 @@ import numpy as np
 
 
 class PlotAudio(object):
-    def __init__(self, signal=[], fs=48000.):
+    def __init__(self, signal=[], fs=48000.0, bit_depth=16):
         self.signal = signal
         self.length = len(self.signal)
         self.fs = fs
+        self.bit_depth = bit_depth
+
+    @staticmethod
+    def show():
+        plt.show()
 
     def normalize(self):
-        return self.signal / (2. ** 15)
+        return self.signal / (2. ** (self.bit_depth-1))
 
     def plot_fft(self, title='FFT'):
         sig_norm = self.normalize()
@@ -42,7 +47,6 @@ class PlotAudio(object):
         ax.axis('tight')
         plt.title(title)
         plt.grid()
-        plt.show()
 
     def plot_waveform(self, title='Waveform'):
         sig_norm = self.normalize()
@@ -55,7 +59,6 @@ class PlotAudio(object):
         plt.xlabel('Time (ms)')
         plt.title(title)
         plt.grid()
-        plt.show()
 
     def plot_fir_filter(self, coeffs, title='FIR'):
         w, h = signal.freqz(coeffs)
@@ -67,4 +70,3 @@ class PlotAudio(object):
         plt.title(title)
         ax.axis('tight')
         ax.grid(which='both', axis='both')
-        plt.show()
