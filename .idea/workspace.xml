@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91059201-50b1-47a0-b54e-2b7608fbf781" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/audio/engine.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test/test_engine.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness.py" afterPath="$PROJECT_DIR$/spectral_loudness.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" afterPath="$PROJECT_DIR$/spectral_loudness/test/test_bandpass.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -555,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494212369215</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Implemented spectral_loudness.audio.engine&#10;- Added Engine class which loops wav file &#10;- Added filter_bank Engine.run">
+      <created>1494219412230</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1494219412230</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -593,7 +597,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2074392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2074392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -645,7 +649,8 @@
     <MESSAGE value="PyCharm project files" />
     <MESSAGE value="- Implemented BandpassFilterBank class&#10;    - basic FIR filter &#10;    - test_bandpass contains unit tests&#10;    &#10;- Implemented PlotAudio class&#10;    - plots FFT&#10;    - plots Waveform&#10;    - plots Filter response" />
     <MESSAGE value="- Implemented spectrum_loudness.py frontent&#10;- Added filter_bank methoed to BandpassFilterBank&#10;- Added filter_bank unit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Implemented spectrum_loudness.py frontent&#10;- Added filter_bank methoed to BandpassFilterBank&#10;- Added filter_bank unit test" />
+    <MESSAGE value="- Implemented spectral_loudness.audio.engine&#10;- Added Engine class which loops wav file &#10;- Added filter_bank Engine.run" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Implemented spectral_loudness.audio.engine&#10;- Added Engine class which loops wav file &#10;- Added filter_bank Engine.run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
