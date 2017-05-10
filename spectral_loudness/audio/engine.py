@@ -23,6 +23,9 @@ class Engine():
         if fs != 48000:
             raise ValueError('spectral loudness only supports wav files that are 48kHz, 16-bit')
 
+        loudness_ch1 = Loudness(self.n_filter)
+        loudness_ch2 = Loudness(self.n_filter)
+
         buffer_count = int((data.size/2)/self.buffer_size)
         for buffer in range(buffer_count):
             buffer_start = self.buffer_size * buffer
@@ -51,11 +54,8 @@ class Engine():
             filtered_array_ch1 = self.remove_padding(bpfb.filter_bank(np.ndarray.flatten(ch1)))
             filtered_array_ch2 = self.remove_padding(bpfb.filter_bank(np.ndarray.flatten(ch2)))
 
-            loudness_ch1 = Loudness(filtered_array_ch1)
-            loudness_ch2 = Loudness(filtered_array_ch2)
-
-            momentary_loudness_ch1, short_term_loudness_ch1, true_peak_ch1, dynamic_range_ch1 = loudness_ch1.process()
-            momentary_loudness_ch2, short_term_loudness_ch2, true_peak_ch2, dynamic_range_ch2 = loudness_ch2.process()
+            momentary_ch1, short_term_ch1, true_peak_ch1, dynamic_range_ch1 = loudness_ch1.process(filtered_array_ch1)
+            momentary_ch2, short_term_ch2, true_peak_ch2, dynamic_range_ch2 = loudness_ch2.process(filtered_array_ch2)
 
             print('Dynamic Range: {} {}'.format(dynamic_range_ch1, dynamic_range_ch2))
 
