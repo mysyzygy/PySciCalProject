@@ -9,7 +9,6 @@ class Fifo(object):
         self.fifo_samples = fifo_samples
         self.fifo_shape = (self.fifo_freq, self.fifo_buffer,  self.fifo_samples)
         self.fifo = np.empty(self.fifo_shape, dtype='float64')
-        self.fifo.fill(-96.)
 
     def set_fifo(self, freq,  input_buffer):
         for i in range(self.fifo_buffer - 1):
@@ -33,7 +32,6 @@ class Loudness(object):
         self.true_peak_result = np.zeros((31, 1), dtype='float64')
         self.true_peak_result.fill(-96.)
         self.dynamic_range = np.zeros((31, 1), dtype='float64')
-        self.dynamic_range.fill(-96.)
         self.momentary_loudness_value = None
         self.short_term_loudness_value = None
         self.true_peak_value = None
@@ -76,8 +74,7 @@ class Loudness(object):
     def convert_db_to_fs(input_value):
         return (10 ** (input_value / 20)) * 2 - 0.5
 
-    @staticmethod
-    def true_peak(buffer):
+    def true_peak(self, buffer):
         coeffs = np.array([0.0017089843750,
                            -0.0291748046875,
                            -0.0189208984375,
@@ -128,29 +125,28 @@ class Loudness(object):
                            0.0017089843750])
 
         # TODO: added 12.04 attenuation
-        true_peak_result = round(max(20 * np.log10(abs(signal.resample_poly(buffer, 4, 4, window=coeffs)))), 2)
+        true_peak_result = round(max(20 * np.log10(abs(self.normalize(
+                                     signal.resample_poly(buffer, 4, 4, window=coeffs))))), 2)
         return true_peak_result
 
     def momentary_loudness(self, freq):
         momentary_buffer = self.loudness_fifo.get_fifo_segment(freq, -4)
         k_weight_result = self.k_weight(momentary_buffer.flatten())
-        mean_square_result = self.mean_square(k_weight_result)
+        k_weight_norm = self.normalize(k_weight_result)
+        mean_square_result = self.mean_square(k_weight_norm)
         momentary_loudness_result = self.lufs(mean_square_result)
         return momentary_loudness_result
 
     def short_term_loudness(self, freq):
         momentary_buffer = self.loudness_fifo.get_fifo_segment(freq, 0)
         k_weight_result = self.k_weight(momentary_buffer.flatten())
-        mean_square_result = self.mean_square(k_weight_result)
+        k_weight_norm = self.normalize(k_weight_result)
+        mean_square_result = self.mean_square(k_weight_norm)
         momentary_loudness_result = self.lufs(mean_square_result)
         return momentary_loudness_result
 
     def process(self, input_buffer):
-        input_buffer_norm = self.normalize(input_buffer)
-
-
-
-        for freq, buffer in enumerate(input_buffer_norm):
+        for freq, buffer in enumerate(input_buffer):
             self.loudness_fifo.set_fifo(freq, buffer)
             self.momentary_loudness_value = self.momentary_loudness(freq)
             self.short_term_loudness_value = self.short_term_loudness(freq)
@@ -160,5 +156,7 @@ class Loudness(object):
             self.true_peak_result[freq:] = self.true_peak_value
             self.dynamic_range[freq:] = self.true_peak_value - (
                                     self.momentary_loudness_value + self.short_term_loudness_value) / 2
-        return self.momentary_loudness_result, self.short_term_loudness_result, self.true_peak_result, self.dynamic_range
+
+        return self.momentary_loudness_result, self.short_term_loudness_result, \
+               self.true_peak_result, self.dynamic_range
 
