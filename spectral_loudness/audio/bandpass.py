@@ -8,7 +8,7 @@ class BandpassFilterBank(object):
         self.numtaps = numtaps
         self.fs = fs
         self.nyq = fs/2
-        self.corner_freq = np.geomspace(20, 2e4, self.n_filter)
+        self.corner_freq = np.geomspace(20, 2e4, self.n_filter + 1)
 
     def bandpass_filter_coeffs(self, freq_low, freq_high):
         low_norm = freq_low / self.nyq

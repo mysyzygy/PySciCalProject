@@ -1,6 +1,7 @@
 import argparse
 from spectral_loudness.audio.engine import Engine
 
+
 def main():
     """
     spectral_loudness.main() is the main command line entry point to use the spectral_loudness package.

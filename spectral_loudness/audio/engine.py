@@ -35,6 +35,7 @@ class Engine():
 
             if buffer is 0:
                 pad = np.zeros((self.numtaps, 2))
+                pad.fill(-96.)
                 padded_stop = self.numtaps + buffer_stop + self.numtaps
                 data_start = np.append(pad, data, 0)
                 ch1 = data_start[: padded_stop, :1]
@@ -57,5 +58,7 @@ class Engine():
             momentary_ch1, short_term_ch1, true_peak_ch1, dynamic_range_ch1 = loudness_ch1.process(filtered_array_ch1)
             momentary_ch2, short_term_ch2, true_peak_ch2, dynamic_range_ch2 = loudness_ch2.process(filtered_array_ch2)
 
-            print('Dynamic Range: {} {}'.format(dynamic_range_ch1, dynamic_range_ch2))
+            mono_dyn_rng = (dynamic_range_ch1 + dynamic_range_ch2) / 2
+
+            print('Mono Dynamic Range For Buffer {}: {}'.format(buffer, mono_dyn_rng))
 
