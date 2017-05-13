@@ -1,2 +1,16 @@
 
 *.pyc
+
+*.pyo
+
+.idea/workspace.xml
+
+.idea/vcs.xml
+
+.idea/PySciCalProject.iml
+
+.idea/modules.xml
+
+.idea/misc.xml
+
+.idea/inspectionProfiles/profiles_settings.xml
