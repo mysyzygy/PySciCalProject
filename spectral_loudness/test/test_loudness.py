@@ -69,7 +69,7 @@ def test_true_peak():
 @pytest.mark.parametrize('wav', ['test_file1.wav'])
 def test_loudness(n_filter, numtaps, buffer_size, wav):
     input_file = os.path.join(INPUT_DIR, wav)
-    engine = Engine(input_file=input_file, buffer_size=buffer_size,
+    engine = Engine(input_file=input_file, window=buffer_size,
                     n_filter=n_filter, numtaps=numtaps)
     engine.run()
 

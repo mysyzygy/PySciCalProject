@@ -22,7 +22,10 @@ class BandpassFilterBank(object):
         return output
 
     def filter_bank(self, buffer):
+        # create filter bank
         filtered_array = np.zeros((self.n_filter, buffer.size))
+
+        # bandpass filter each frequency
         for i, freq in enumerate(self.corner_freq):
             if freq == self.corner_freq[-1]:
                 break
