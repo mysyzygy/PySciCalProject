@@ -47,8 +47,10 @@ class Engine:
         self.pad = np.zeros((self.numtaps, 2))
         self.data_end = np.append(self.data, self.pad, 0)
 
-        # create dyn_rng array
+        # create result arrays
         self.dyn_rng_array = np.zeros((round(self.data.shape[0] / self.buffer_size), self.n_filter), dtype=np.float64)
+        self.loudness_array = np.zeros((round(self.data.shape[0] / self.buffer_size), self.n_filter), dtype=np.float64)
+        self.true_peak_array = np.zeros((round(self.data.shape[0] / self.buffer_size), self.n_filter), dtype=np.float64)
 
         # setup sounddevice for playback
         self.sd = sd
@@ -158,11 +160,10 @@ class Engine:
                 # measure loudness for each filtered array
                 result = self.loudness.process(filtered_array_mono)
 
-                # dynamic range values
-                dyn_rng = result[2]
-
                 # enter dyn_rng value into array
-                self.dyn_rng_array[buffer, ] = np.ndarray.flatten(dyn_rng)
+                self.loudness_array[buffer, ] = np.ndarray.flatten(result[0])
+                self.true_peak_array[buffer, ] = np.ndarray.flatten(result[1])
+                self.dyn_rng_array[buffer,] = np.ndarray.flatten(result[2])
 
                 # DEBUG TIMING TEST
                 if DEBUG:
@@ -174,3 +175,11 @@ class Engine:
                     break
             self.event.wait()
         self.write_file()
+
+        avg_loudness = np.sum(self.loudness_array, 0) / self.loudness_array.shape[0]
+        avg_dyn_rng = np.sum(self.dyn_rng_array, 0) / self.dyn_rng_array.shape[0]
+        avg_true_peak = np.sum(self.true_peak_array, 0) / self.true_peak_array.shape[0]
+
+        print('Average Loudness: {}\nAverage Dynamic Range: {}\n Average True Peak: {}'.format(avg_loudness,
+                                                                                               avg_dyn_rng,
+                                                                                               avg_true_peak))

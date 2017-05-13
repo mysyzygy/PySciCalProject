@@ -9,11 +9,17 @@ def main():
     # parse command line arguments
     parser = argparse.ArgumentParser(description='Analyze spectral loudness of a 48 kHz, 16-bit stereo wav file.')
     parser.add_argument('--input_file', '-i', help='Path to input file. Must be .wav')
-    parser.add_argument('--output_file', '-o', help='Path to output file. Must be .txt or .npy')
+    parser.add_argument('--output_file', '-o', help='Path to output file. Must be .txt or .npy. '
+                                                    'Defaults to input file + .npy')
     args = parser.parse_args()
 
+    if args.output_file:
+        output_file = args.output_file
+    else:
+        output_file = args.input_file[:-3] + '.npy'
+
     # create engine object
-    engine = Engine(input_file=args.input_file, output_file=args.output_file)
+    engine = Engine(input_file=args.input_file, output_file=output_file)
 
     # run spectral loudness engine
     engine.run()
