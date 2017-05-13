@@ -18,7 +18,7 @@ DEBUG = False
 
 class Engine:
     def __init__(self, input_file, output_file, dyn_rng_type='short', buffer_size=4800,
-                 n_filter=16, numtaps=1200, queue_size=20):
+                 n_filter=31, numtaps=1200, queue_size=20):
 
         self.input_file = input_file
         self.output_file = output_file
@@ -128,10 +128,11 @@ class Engine:
 
                 elif buffer == buffer_count - 1:
                     padded_start = buffer_start - self.numtaps
+                    padded_stop = buffer_stop + self.numtaps
 
                     # slice buffer with pre and post pad
-                    ch1 = self.data_end[padded_start:, :1]
-                    ch2 = self.data_end[padded_start:, 1:]
+                    ch1 = self.data_end[padded_start:padded_stop, :1]
+                    ch2 = self.data_end[padded_start:padded_stop, 1:]
 
                     mono_buffer = (ch1 + ch2) / 2
                     # set audio buffer
@@ -178,8 +179,8 @@ class Engine:
 
         avg_loudness = np.sum(self.loudness_array, 0) / self.loudness_array.shape[0]
         avg_dyn_rng = np.sum(self.dyn_rng_array, 0) / self.dyn_rng_array.shape[0]
-        avg_true_peak = np.sum(self.true_peak_array, 0) / self.true_peak_array.shape[0]
+        max_true_peak = np.max(self.true_peak_array, 0) / self.true_peak_array.shape[0]
 
-        print('Average Loudness: {}\nAverage Dynamic Range: {}\n Average True Peak: {}'.format(avg_loudness,
+        print('Average Loudness: {}\nAverage Dynamic Range: {}\n Max True Peak: {}'.format(avg_loudness,
                                                                                                avg_dyn_rng,
-                                                                                               avg_true_peak))
+                                                                                               max_true_peak))

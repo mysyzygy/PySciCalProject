@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib.path as path
 import matplotlib.animation as animation
+import time
 
 fig, ax = plt.subplots()
 
@@ -56,13 +57,19 @@ ax.set_xlim(left[0], right[-1])
 ax.set_ylim(bottom.min(), top.max())
 
 
+start = None
+stop = None
+
 def animate(i):
     # simulate new data coming in
+    start = time.time()
     data = np.random.randn(1000)
     n, bins = np.histogram(data, 100)
     top = bottom + n
     verts[1::5, 1] = top
     verts[2::5, 1] = top
+    stop = time.time()
+    print('loop time: {}'.format(stop - start))
     return [patch, ]
 
 ani = animation.FuncAnimation(fig, animate, 100, repeat=False, blit=True)

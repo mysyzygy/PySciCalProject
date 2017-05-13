@@ -13,7 +13,7 @@ class BandpassFilterBank(object):
     def bandpass_filter_coeffs(self, freq_low, freq_high):
         low_norm = freq_low / self.nyq
         high_norm = freq_high / self.nyq
-        coeffs = signal.firwin(self.numtaps, [low_norm, high_norm], window='blackmanharris', pass_zero=False)
+        coeffs = signal.firwin(self.numtaps, [low_norm, high_norm], window='blackman', pass_zero=False)
         return coeffs
 
     def bandpass_filter(self, freq_low, freq_high, buffer):
