@@ -22,30 +22,27 @@ class Fifo(object):
 
 
 class Loudness(object):
-    def __init__(self, n_filter, window=4800):
+    def __init__(self, n_filter, dyn_rng='short', window=4800):
         self.n_filter = n_filter
         self.window = window
+        self.dyn_rng = dyn_rng
+        if self.dyn_rng is 'short':
+            self.measurement_window = -4
+        elif self.dyn_rng is 'long':
+            self.measurement_window = 0
+        else:
+            raise ValueError('dyn_rng value must be short or long, not: {}'.format(self.dyn_rng))
+
         self.loudness_fifo = Fifo(fifo_freq=self.n_filter)
 
-        self.momentary_loudness_result = np.zeros((self.n_filter, 1), dtype='float64')
-        self.momentary_loudness_result.fill(-96.)
+        self.loudness_result = np.zeros((self.n_filter, 1), dtype='float64')
+        self.loudness_result.fill(-96.)
+        self.true_peak_result = np.zeros((self.n_filter, 1), dtype='float64')
+        self.true_peak_result.fill(-96.)
+        self.dynamic_range = np.zeros((self.n_filter, 1), dtype='float64')
 
-        self.short_term_loudness_result = np.zeros((self.n_filter, 1), dtype='float64')
-        self.short_term_loudness_result.fill(-96.)
-
-        self.momentary_true_peak_result = np.zeros((self.n_filter, 1), dtype='float64')
-        self.momentary_true_peak_result.fill(-96.)
-
-        self.short_term_true_peak_result = np.zeros((self.n_filter, 1), dtype='float64')
-        self.short_term_true_peak_result.fill(-96.)
-
-        self.momentary_dynamic_range = np.zeros((self.n_filter, 1), dtype='float64')
-        self.short_term_dynamic_range = np.zeros((self.n_filter, 1), dtype='float64')
-
-        self.momentary_loudness_value = None
-        self.short_term_loudness_value = None
-        self.momentary_true_peak_value = None
-        self.short_term_true_peak_value = None
+        self.loudness_value = None
+        self.true_peak_value = None
 
     @staticmethod
     def normalize(buffer):
@@ -100,13 +97,13 @@ class Loudness(object):
                            0.0148925781250,  0.0330810546875,  0.0292968750000,  0.0109863281250,
                           -0.0083007812500, -0.0189208984375, -0.0291748046875,  0.0017089843750])
 
-        true_peak_result = round(max(20 * np.log10(abs(self.normalize(
+        true_peak_result = round(np.max(20 * np.log10(abs(self.normalize(
                                      signal.resample_poly(buffer, 4, 4, window=coeffs))))), 2)
         return true_peak_result
 
-    def momentary_loudness(self, freq):
+    def measure_loudness(self, freq):
         # window over 400ms
-        momentary_buffer = self.loudness_fifo.get_fifo_segment(freq, -4)
+        momentary_buffer = self.loudness_fifo.get_fifo_segment(freq, self.measurement_window)
 
         # apply k-weight filter
         k_weight_result = self.k_weight(momentary_buffer.flatten())
@@ -121,50 +118,21 @@ class Loudness(object):
         momentary_loudness_result = self.lufs(mean_square_result)
         return momentary_loudness_result
 
-    def short_term_loudness(self, freq):
-        # window over 3s
-        short_term_buffer = self.loudness_fifo.get_fifo_segment(freq, 0)
-
-        # apply k-weight filter
-        k_weight_result = self.k_weight(short_term_buffer.flatten())
-
-        # normalize from 16 bit to full scale
-        k_weight_norm = self.normalize(k_weight_result)
-
-        # calculate mean square
-        mean_square_result = self.mean_square(k_weight_norm)
-
-        # calculate short term lufs
-        momentary_loudness_result = self.lufs(mean_square_result)
-        return momentary_loudness_result
-
     def process(self, input_buffer):
         for freq, buffer in enumerate(input_buffer):
             # set fifo with freq buffer
             self.loudness_fifo.set_fifo(freq, buffer)
 
             # calculate momentary loudness lufs
-            self.momentary_loudness_value = self.momentary_loudness(freq)
-            self.momentary_loudness_result[freq:] = self.momentary_loudness_value
+            self.loudness_value = self.measure_loudness(freq)
+            self.loudness_result[freq:] = self.loudness_value
 
             # find true peak over 400ms window
-            self.momentary_true_peak_value = self.true_peak(self.loudness_fifo.get_fifo_segment(freq, -4).flatten())
-            self.momentary_true_peak_result[freq:] = self.momentary_true_peak_value
+            self.true_peak_value = self.true_peak(self.loudness_fifo.get_fifo_segment(
+                freq, self.measurement_window).flatten())
+            self.true_peak_result[freq:] = self.true_peak_value
 
             # calculate momentary dynamic range
-            self.momentary_dynamic_range[freq:] = self.momentary_true_peak_value - self.momentary_loudness_value
+            self.dynamic_range[freq:] = self.true_peak_value - self.loudness_value
 
-            # calculate short term loudness lufs
-            self.short_term_loudness_value = self.short_term_loudness(freq)
-            self.short_term_loudness_result[freq:] = self.short_term_loudness_value
-
-            # find true peak over 400ms window
-            self.short_term_true_peak_value = self.true_peak(self.loudness_fifo.get_fifo_segment(freq, 0).flatten())
-            self.short_term_true_peak_result[freq:] = self.short_term_true_peak_value
-
-            # calculate momentary dynamic range
-            self.short_term_dynamic_range[freq:] = self.short_term_true_peak_value - self.short_term_loudness_value
-
-        return (self.momentary_loudness_result, self.short_term_loudness_result,
-                self.momentary_true_peak_result, self.short_term_true_peak_result,
-                self.momentary_dynamic_range, self.short_term_dynamic_range)
+        return self.loudness_result, self.true_peak_result, self.dynamic_range
