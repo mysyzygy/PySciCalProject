@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91059201-50b1-47a0-b54e-2b7608fbf781" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test_files/potc.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test_files/potc.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test_files/test_file2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scratch/play_long_file.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spectral_loudness/test_files/potc.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness.py" afterPath="$PROJECT_DIR$/spectral_loudness.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness/audio/engine.py" afterPath="$PROJECT_DIR$/spectral_loudness/audio/engine.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spectral_loudness/audio/loudness.py" afterPath="$PROJECT_DIR$/spectral_loudness/audio/loudness.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +19,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/PySciCalProject$play_long_file.coverage" NAME="play_long_file Coverage Results" MODIFIED="1494575536911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scratch" />
-    <SUITE FILE_PATH="coverage/PySciCalProject$spectral_loudness.coverage" NAME="spectral_loudness Coverage Results" MODIFIED="1494652868947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PySciCalProject$spectral_loudness.coverage" NAME="spectral_loudness Coverage Results" MODIFIED="1494653413288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PySciCalProject$bandpass.coverage" NAME="bandpass Coverage Results" MODIFIED="1494123823266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audio" />
     <SUITE FILE_PATH="coverage/PySciCalProject$Test_Bandpass.coverage" NAME="Test Bandpass Coverage Results" MODIFIED="1494300062902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spectral_loudness/test" />
     <SUITE FILE_PATH="coverage/PySciCalProject$Test_Engine.coverage" NAME="Test Engine Coverage Results" MODIFIED="1494399254076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spectral_loudness/test/" />
@@ -48,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spectral_loudness.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spectral_loudness.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -84,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="engine.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="93" column="18" lean-forward="true" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+            <state relative-caret-position="393">
+              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -196,8 +199,8 @@
         <option value="$PROJECT_DIR$/spectral_loudness/audio/bandpass.py" />
         <option value="$PROJECT_DIR$/scratch/play_long_file.py" />
         <option value="$PROJECT_DIR$/spectral_loudness/audio/loudness.py" />
-        <option value="$PROJECT_DIR$/spectral_loudness.py" />
         <option value="$PROJECT_DIR$/spectral_loudness/audio/engine.py" />
+        <option value="$PROJECT_DIR$/spectral_loudness.py" />
       </list>
     </option>
   </component>
@@ -271,6 +274,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test_files" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PySciCalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PySciCalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spectral_loudness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plotting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -708,7 +729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494637223357</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- refactored engine and loudness to run in realtime with audio playback&#10;- dynamic range values are now written to the given output path">
+      <created>1494653025105</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1494653025105</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -748,11 +776,11 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7617834" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28280255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7171975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44062948" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45477706" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18311875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18311875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866243" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -784,7 +812,8 @@
     <MESSAGE value="- changed FIFO to 3d numpy array&#10;- fixed bandpass corner freq bug&#10;- changed dynamic range output to mono" />
     <MESSAGE value="- moved decimation to follow all filtering" />
     <MESSAGE value="- refactored to merge stereo files before filter + measurements" />
-    <option name="LAST_COMMIT_MESSAGE" value="- refactored to merge stereo files before filter + measurements" />
+    <MESSAGE value="- refactored engine and loudness to run in realtime with audio playback&#10;- dynamic range values are now written to the given output path" />
+    <option name="LAST_COMMIT_MESSAGE" value="- refactored engine and loudness to run in realtime with audio playback&#10;- dynamic range values are now written to the given output path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1167,16 +1196,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/bandpass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1207,10 +1226,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spectral_loudness/audio/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="93" column="18" lean-forward="true" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+        <state relative-caret-position="393">
+          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spectral_loudness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
