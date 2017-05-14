@@ -13,63 +13,48 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib.path as path
 import matplotlib.animation as animation
+from matplotlib import gridspec
 
 
 class Animate:
-    def __init__(self, data):
+    def __init__(self, loudness_array, true_peak_array, n_freqs):
 
-        self.data = data
-        self.fig, ax = plt.subplots()
+        self.loudness_array = loudness_array
+        self.true_peak_array = true_peak_array
 
-        # histogram our data with numpy
-        #data = np.random.randn(1000)
-        n, bins = np.histogram(self.data)
+        ind = np.arange(len(n_freqs))  # the x locations for the groups
+        width = 0.67  # the width of the bars
 
-        # get the corners of the rectangles for the histogram
-        left = np.array(bins[:-1])
-        right = np.array(bins[1:])
-        self.bottom = np.zeros(len(left))
-        top = self.bottom + n
-        nrects = len(left)
+        fig = plt.figure(figsize=(12, 8))
+        ax = plt.subplot2grid((1, 1), (0, 0))
 
-        # here comes the tricky part -- we have to set up the vertex and path
-        # codes arrays using moveto, lineto and closepoly
+        rects1 = ax.bar(ind, 96 + self.true_peak_array, width, bottom=-96, color='r')
+        rects2 = ax.bar(ind, 96 + self.loudness_array, width, bottom=-96, color='g')
 
-        # for each rect: 1 for the MOVETO, 3 for the LINETO, 1 for the
-        # CLOSEPOLY; the vert for the closepoly is ignored but we still need
-        # it to keep the codes aligned with the vertices
-        nverts = nrects*(1 + 3 + 1)
-        self.verts = np.zeros((nverts, 2))
-        codes = np.ones(nverts, int) * path.Path.LINETO
-        codes[0::5] = path.Path.MOVETO
-        codes[4::5] = path.Path.CLOSEPOLY
-        self.verts[0::5, 0] = left
-        self.verts[0::5, 1] = self.bottom
-        self.verts[1::5, 0] = left
-        self.verts[1::5, 1] = top
-        self.verts[2::5, 0] = right
-        self.verts[2::5, 1] = top
-        self.verts[3::5, 0] = right
-        self.verts[3::5, 1] = self.bottom
+        # add some text for labels, title and axes ticks
+        ax.set_ylabel('dB')
+        ax.set_yticks((-96, 0))
+        ax.set_title('True Peak and Loudness Measurement')
+        ax.set_xticks(ind)
+        ax.set_xticklabels(n_freqs.astype(int))
+        ax.legend((rects1[0], rects2[0]), ('True Peak', 'Loudness'))
 
-        barpath = path.Path(self.verts, codes)
-        self.patch = patches.PathPatch(
-            barpath, facecolor='green', edgecolor='yellow', alpha=0.5)
-        ax.add_patch(self.patch)
-
-        ax.set_xlim(left[0], right[-1])
-        ax.set_ylim(self.bottom.min(), top.max())
-
-
-    def animate(self, i):
-        # simulate new data coming in
-        #data = np.random.randn(1000)
-        n, bins = np.histogram(self.data)
-        top = self.bottom + n
-        self.verts[1::5, 1] = top
-        self.verts[2::5, 1] = top
-        return [self.patch, ]
-
-    def run_animation(self):
-        ani = animation.FuncAnimation(self.fig, self.animate, 100, repeat=False, blit=True)
+        plt.tight_layout()
         plt.show()
+
+    @staticmethod
+    def show():
+        plt.show()
+
+    # def animate(self, i):
+    #     # simulate new data coming in
+    #     #data = np.random.randn(1000)
+    #     n, bins = np.histogram(self.data)
+    #     top = self.bottom + n
+    #     self.verts[1::5, 1] = top
+    #     self.verts[2::5, 1] = top
+    #     return [self.patch, ]
+    #
+    # def run_animation(self):
+    #     ani = animation.FuncAnimation(self.fig, self.animate, 100, repeat=False, blit=True)
+    #     self.show()

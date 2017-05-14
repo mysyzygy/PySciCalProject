@@ -16,7 +16,7 @@ def main():
     if args.output_file:
         output_file = args.output_file
     else:
-        output_file = args.input_file[:-3] + '.npy'
+        output_file = args.input_file[:-4] + '.npy'
 
     # create engine object
     engine = Engine(input_file=args.input_file, output_file=output_file)

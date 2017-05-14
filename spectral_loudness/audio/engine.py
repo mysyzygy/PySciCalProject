@@ -18,7 +18,7 @@ DEBUG = False
 
 class Engine:
     def __init__(self, input_file, output_file, dyn_rng_type='short', buffer_size=4800,
-                 n_filter=31, numtaps=1200, queue_size=20):
+                 n_filter=16, numtaps=1200, queue_size=20):
 
         self.input_file = input_file
         self.output_file = output_file
@@ -87,7 +87,9 @@ class Engine:
 
     def write_file(self):
         if self.output_file.endswith('.npy'):
-            np.save(self.output_file, self.dyn_rng_array)
+            np.save(self.output_file[:-4] + '_dyn.npy', self.dyn_rng_array)
+            np.save(self.output_file[:-4] + '_peak.npy', self.true_peak_array)
+            np.save(self.output_file[:-4] + '_loud.npy', self.loudness_array)
         elif self.output_file.endswith('.txt'):
             np.savetxt(self.output_file, self.dyn_rng_array)
         else:
