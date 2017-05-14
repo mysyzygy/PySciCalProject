@@ -17,44 +17,38 @@ from matplotlib import gridspec
 
 
 class Animate:
-    def __init__(self, loudness_array, true_peak_array, n_freqs):
+    def __init__(self, n_freqs):
+        self.n_freqs = n_freqs
+        self.ind = np.arange(len(self.n_freqs))  # the x locations for the groups
+        self.width = 0.67  # the width of the bars
+        self.fig = plt.figure(figsize=(12, 8))
+        self.ax = plt.subplot2grid((1, 1), (0, 0))
+        # self.background = self.fig.canvas.copy_from_bbox(self.ax.bbox)
+        # plt.show(False)
+        # plt.draw()
 
-        self.loudness_array = loudness_array
-        self.true_peak_array = true_peak_array
+    def animate(self, loudness_array, true_peak_array):
+        # self.fig.canvas.restore_region(self.background)
+        rects1 = self.ax.bar(self.ind, 96 + true_peak_array, self.width, bottom=-96, color='r')
+        rects2 = self.ax.bar(self.ind, 96 + loudness_array, self.width, bottom=-96, color='g')
 
-        ind = np.arange(len(n_freqs))  # the x locations for the groups
-        width = 0.67  # the width of the bars
-
-        fig = plt.figure(figsize=(12, 8))
-        ax = plt.subplot2grid((1, 1), (0, 0))
-
-        rects1 = ax.bar(ind, 96 + self.true_peak_array, width, bottom=-96, color='r')
-        rects2 = ax.bar(ind, 96 + self.loudness_array, width, bottom=-96, color='g')
-
+        # points = self.ax.plot(1, 1, 'o')[0]
+        # points.set_data(rects1, rects2)
         # add some text for labels, title and axes ticks
-        ax.set_ylabel('dB')
-        ax.set_yticks((-96, 0))
-        ax.set_title('True Peak and Loudness Measurement')
-        ax.set_xticks(ind)
-        ax.set_xticklabels(n_freqs.astype(int))
-        ax.legend((rects1[0], rects2[0]), ('True Peak', 'Loudness'))
+        self.ax.set_ylabel('dB')
+        self.ax.set_yticks((-96, 0))
+        self.ax.set_title('True Peak and Loudness Measurement')
+        self.ax.set_xticks(self.ind)
+        self.ax.set_xticklabels(self.n_freqs.astype(int))
+        self.ax.legend((rects1[0], rects2[0]), ('True Peak', 'Loudness'))
 
-        plt.tight_layout()
-        plt.show()
+        # self.ax.draw_artist(points)
+        # self.fig.canvas.blit(self.ax.bbox)
+        self.fig.canvas.draw_idle()
 
     @staticmethod
     def show():
         plt.show()
-
-    # def animate(self, i):
-    #     # simulate new data coming in
-    #     #data = np.random.randn(1000)
-    #     n, bins = np.histogram(self.data)
-    #     top = self.bottom + n
-    #     self.verts[1::5, 1] = top
-    #     self.verts[2::5, 1] = top
-    #     return [self.patch, ]
     #
-    # def run_animation(self):
-    #     ani = animation.FuncAnimation(self.fig, self.animate, 100, repeat=False, blit=True)
-    #     self.show()
+    # def run_animation(self, yield_array):
+    #     ani = animation.FuncAnimation(self.fig, self.animate, yield_array, blit=True)
