@@ -40,7 +40,7 @@ class Histogram:
         # get the corners of the rectangles for the histogram
         self.left = np.array(self.freq_count[:-1])
         self.right = np.array(self.freq_count[1:])
-        self.bottom = np.zeros(len(self.left))
+        self.bottom = np.zeros(len(self.left)) -96
         self.top = self.bottom + self.data
         self.nrects = len(self.left)
 
@@ -85,7 +85,7 @@ class Animate:
         else:
             self.ax.add_patch(self.histograms.patch)
 
-        self.ax.set_yticks((np.linspace(0, 96, 17)))
+        self.ax.set_yticks((np.linspace(-96, 0, 17)))
         self.ax.set_title('True Peak and Loudness Measurement')
         self.ax.set_xticks(self.freq_count)
         self.ax.set_xticklabels(self.corner_freq)
@@ -102,12 +102,12 @@ class Animate:
         patches = []
         if isinstance(self.histograms, list):
             for i, hist in enumerate(self.histograms):
-                dyn_buffer_array = np.ndarray.flatten(dyn_buffer[i]) + 96
+                dyn_buffer_array = np.ndarray.flatten(dyn_buffer[i])
                 self.histograms[i].verts[1::5, 1] = dyn_buffer_array
                 self.histograms[i].verts[2::5, 1] = dyn_buffer_array
                 patches.append(self.histograms[i].patch)
         else:
-            dyn_buffer_array = np.ndarray.flatten(dyn_buffer) + 96
+            dyn_buffer_array = np.ndarray.flatten(dyn_buffer)
             self.histograms.verts[1::5, 1] = dyn_buffer_array
             self.histograms.verts[2::5, 1] = dyn_buffer_array
             patches = [self.histograms.patch, ]
