@@ -50,7 +50,7 @@ class Histogram:
         self.codes[0::5] = path.Path.MOVETO
         self.codes[4::5] = path.Path.CLOSEPOLY
         self.verts[0::5, 0] = self.left
-        self.verts[0::5, 1] = self.right
+        self.verts[0::5, 1] = self.bottom
         self.verts[1::5, 0] = self.left
         self.verts[1::5, 1] = self.top
         self.verts[2::5, 0] = self.right
@@ -96,7 +96,6 @@ class Animate:
         print_time()
         global START
         START = time.time()
-
 
         patches = []
         if isinstance(self.histograms, list):
