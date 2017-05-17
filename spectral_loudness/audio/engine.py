@@ -180,17 +180,20 @@ class Engine:
     def run(self):
         print('Running spectrum analyzer on input file: {}'.format(self.input_file))
 
-        stream = sd.OutputStream(
-            samplerate=self.fs, blocksize=self.buffer_size,
-            device=1, channels=2, dtype='int16',
-            callback=self.callback, finished_callback=self.event.set)
+        sd.play(self.data, self.fs)
 
-        with stream:
+        # stream = sd.OutputStream(
+        #     samplerate=self.fs, blocksize=self.buffer_size,
+        #     device=1, channels=2, dtype='int16',
+        #     callback=self.callback, finished_callback=self.event.set)
+        #
+        # with stream:
             # self.process()
-            animate = Animate(self.histograms, self.bpfb.corner_freq, self.process())
-            animate.run()
 
-        self.event.wait()
+        animate = Animate(self.histograms, self.bpfb.corner_freq, self.process())
+        animate.run()
+
+        # self.event.wait()
         self.write_file()
 
         avg_loudness = np.sum(self.loudness_array, 0) / self.loudness_array.shape[0]

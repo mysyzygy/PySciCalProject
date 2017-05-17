@@ -94,11 +94,11 @@ class Animate:
 
     def update(self, dyn_buffer):
         # simulate new data coming in
-        global STOP
-        STOP = time.time()
-        print_time()
-        global START
-        START = time.time()
+        # global STOP
+        # STOP = time.time()
+        # print_time()
+        # global START
+        # START = time.time()
         patches = []
         if isinstance(self.histograms, list):
             for i, hist in enumerate(self.histograms):
@@ -118,5 +118,5 @@ class Animate:
             next(self.gen_function)
 
     def run(self):
-        ani = animation.FuncAnimation(self.fig, self.update, self.gen_function, interval=100, blit=True)
+        ani = animation.FuncAnimation(self.fig, self.update, self.gen_function, interval=105, blit=True)
         plt.show()
