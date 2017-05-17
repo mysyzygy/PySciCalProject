@@ -31,7 +31,7 @@ def test_simple_animation():
 def test_run_animation():
     true_peak_array = np.load(os.path.join(INPUT_DIR, 'Calvin_Harris_This_Is_What_You_Came_For_peak.npy'))
     loudness_array = np.load(os.path.join(INPUT_DIR, 'Calvin_Harris_This_Is_What_You_Came_For_loud.npy'))
-    corner_freqs = np.geomspace(20, 2e4, true_peak_array.shape[1])
+    corner_freqs = 17
     true_peak_hist = Histogram(corner_freqs, facecolor='r')
     loudness_hist = Histogram(corner_freqs, facecolor='b')
     histograms = [true_peak_hist, loudness_hist]

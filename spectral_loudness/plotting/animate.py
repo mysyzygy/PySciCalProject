@@ -35,7 +35,7 @@ class Histogram:
     def __init__(self, corner_freq, facecolor='green', edgecolor='black'):
         self.data = np.zeros(16)
         self.corner_freq = corner_freq.astype(np.int16)
-        self.freq_count = np.arange(self.corner_freq.size + 1)
+        self.freq_count = np.arange(self.corner_freq.size)
 
         # get the corners of the rectangles for the histogram
         self.left = np.array(self.freq_count[:-1])
@@ -62,14 +62,17 @@ class Histogram:
 
 START = 0
 STOP = 0
+COUNTER = 0
 
 
 def print_time():
-    print('loop time: {}'.format(STOP - START))
+    global COUNTER
+    print('loop {} time: {}'.format(COUNTER, STOP - START))
+    COUNTER += 1
 
 
 class Animate:
-    def __init__(self, histogram, corner_freq, gen_function,):
+    def __init__(self, histogram, corner_freq, gen_function):
         self.histograms = histogram
         self.corner_freq = corner_freq.astype(np.int16)
         self.freq_count = np.arange(len(self.corner_freq))
@@ -96,19 +99,19 @@ class Animate:
         print_time()
         global START
         START = time.time()
-
         patches = []
         if isinstance(self.histograms, list):
-            for i, hist in enumerate(dyn_buffer):
-                dyn_buffer_array = dyn_buffer[i] + 96
+            for i, hist in enumerate(self.histograms):
+                dyn_buffer_array = np.ndarray.flatten(dyn_buffer[i]) + 96
                 self.histograms[i].verts[1::5, 1] = dyn_buffer_array
                 self.histograms[i].verts[2::5, 1] = dyn_buffer_array
                 patches.append(self.histograms[i].patch)
         else:
-            dyn_buffer_array = dyn_buffer + 96
+            dyn_buffer_array = np.ndarray.flatten(dyn_buffer) + 96
             self.histograms.verts[1::5, 1] = dyn_buffer_array
             self.histograms.verts[2::5, 1] = dyn_buffer_array
             patches = [self.histograms.patch, ]
+
         return patches
 
     def process(self):
