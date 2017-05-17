@@ -118,5 +118,5 @@ class Animate:
             next(self.gen_function)
 
     def run(self):
-        ani = animation.FuncAnimation(self.fig, self.update, self.gen_function, interval=105, blit=True)
+        ani = animation.FuncAnimation(self.fig, self.update, self.gen_function, interval=100, blit=True)
         plt.show()
