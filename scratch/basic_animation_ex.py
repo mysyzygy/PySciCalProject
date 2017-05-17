@@ -6,6 +6,15 @@ import numpy as np
 from matplotlib.lines import Line2D
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import time
+
+
+START = 0
+STOP = 0
+
+
+def print_time():
+    print('loop time: {}'.format(STOP - START))
 
 class Scope:
     def __init__(self, ax, maxt=2, dt=0.02):
@@ -20,6 +29,12 @@ class Scope:
         self.ax.set_xlim(0, self.maxt)
 
     def update(self, y):
+        global STOP
+        STOP = time.time()
+        print_time()
+        global START
+        START = time.time()
+
         lastt = self.tdata[-1]
         if lastt > self.tdata[0] + self.maxt: # reset the arrays
             self.tdata = [self.tdata[-1]]
@@ -34,8 +49,11 @@ class Scope:
         return self.line,
 
 
+
+
 def emitter(p=0.03):
     'return a random value with probability p, else 0'
+
     while True:
         v = np.random.rand(1)
         if v > p:

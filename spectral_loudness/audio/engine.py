@@ -5,6 +5,7 @@ import sys
 
 from .bandpass import BandpassFilterBank
 from .loudness import Loudness
+from ..plotting.animate import PlotBarGraph
 
 import time
 try:
@@ -13,7 +14,7 @@ except ImportError:
     import Queue as queue  # Python 2.x
 import threading
 
-DEBUG = False
+DEBUG = True
 
 
 class Engine:
@@ -154,9 +155,6 @@ class Engine:
                     # set audio buffer
                     audio_buffer = self.data[buffer_start: buffer_stop]
 
-                # add audio buffer to queue
-                self.q.put(audio_buffer)
-
                 # create filtered array and remove padding - array size is equal to self.n_filter
                 filtered_array_mono = self.remove_padding(self.bpfb.filter_bank(np.ndarray.flatten(mono_buffer)))
 
@@ -167,6 +165,9 @@ class Engine:
                 self.loudness_array[buffer, ] = np.ndarray.flatten(result[0])
                 self.true_peak_array[buffer, ] = np.ndarray.flatten(result[1])
                 self.dyn_rng_array[buffer,] = np.ndarray.flatten(result[2])
+
+                # add audio buffer to queue
+                self.q.put(audio_buffer)
 
                 # DEBUG TIMING TEST
                 if DEBUG:
@@ -181,8 +182,13 @@ class Engine:
 
         avg_loudness = np.sum(self.loudness_array, 0) / self.loudness_array.shape[0]
         avg_dyn_rng = np.sum(self.dyn_rng_array, 0) / self.dyn_rng_array.shape[0]
-        max_true_peak = np.max(self.true_peak_array, 0) / self.true_peak_array.shape[0]
+        max_true_peak = np.max(self.true_peak_array, 0)
 
         print('Average Loudness: {}\nAverage Dynamic Range: {}\n Max True Peak: {}'.format(avg_loudness,
                                                                                                avg_dyn_rng,
                                                                                                max_true_peak))
+
+        plot_freqs = np.geomspace(20, 2e4, len(avg_loudness))
+        animate = PlotBarGraph(plot_freqs)
+        animate.plot_histogram(avg_loudness, max_true_peak)
+        animate.show()
