@@ -15,7 +15,7 @@ class PlotBarGraph:
         self.ax = plt.subplot2grid((1, 1), (0, 0))
 
     def plot_histogram(self, loudness_array, true_peak_array):
-        rects1 = self.ax.bar(self.freq_count, 96 + true_peak_array, self.width, bottom=-96, color='r')
+        rects1 = self.ax.bar(self.freq_count, 96 + true_peak_array, self.width, bottom=-96, color='orange')
         rects2 = self.ax.bar(self.freq_count, 96 + loudness_array, self.width, bottom=-96, color='b')
         self.ax.set_ylabel('dB')
         self.ax.set_yticks((np.linspace(-96, 0, 17)))
@@ -32,7 +32,7 @@ class PlotBarGraph:
 
 
 class Histogram:
-    def __init__(self, corner_freq, facecolor='green', edgecolor='black'):
+    def __init__(self, corner_freq, facecolor='green', edgecolor='black', alpha=1.0):
         self.data = np.zeros(16)
         self.corner_freq = corner_freq.astype(np.int16)
         self.freq_count = np.arange(self.corner_freq.size)
@@ -40,7 +40,7 @@ class Histogram:
         # get the corners of the rectangles for the histogram
         self.left = np.array(self.freq_count[:-1])
         self.right = np.array(self.freq_count[1:])
-        self.bottom = np.zeros(len(self.left)) -96
+        self.bottom = np.zeros(len(self.left)) - 96
         self.top = self.bottom + self.data
         self.nrects = len(self.left)
 
@@ -58,7 +58,7 @@ class Histogram:
         self.verts[3::5, 0] = self.right
         self.verts[3::5, 1] = self.bottom
         self.barpath = path.Path(self.verts, self.codes)
-        self.patch = patches.PathPatch(self.barpath, facecolor=facecolor, edgecolor=edgecolor, alpha=1.0)
+        self.patch = patches.PathPatch(self.barpath, facecolor=facecolor, edgecolor=edgecolor, alpha=alpha)
 
 START = 0
 STOP = 0
@@ -99,6 +99,7 @@ class Animate:
         # print_time()
         # global START
         # START = time.time()
+
         patches = []
         if isinstance(self.histograms, list):
             for i, hist in enumerate(self.histograms):

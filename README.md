@@ -14,3 +14,8 @@ frequency band in real time.
 
 3. Using the dynamic range tools from step 1, use machine learning to analyze different genres of music 
 and create a musical genre predictor.  
+
+
+DEPENDENCIES:
+- python 3.4.2
+- numpy, scipy, matplotlib, sounddevice

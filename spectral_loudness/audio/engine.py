@@ -63,8 +63,8 @@ class Engine:
         self.event = threading.Event()
 
         # generate animation objects
-        self.true_peak_hist = Histogram(self.bpfb.corner_freq, facecolor='r')
-        self.loudness_hist = Histogram(self.bpfb.corner_freq, facecolor='b')
+        self.true_peak_hist = Histogram(self.bpfb.corner_freq, facecolor='orange', alpha=1.0)
+        self.loudness_hist = Histogram(self.bpfb.corner_freq, facecolor='b', alpha=1.0)
         self.histograms = [self.true_peak_hist, self.loudness_hist]
 
         # DEBUG start and stop times
@@ -196,6 +196,7 @@ class Engine:
         # self.event.wait()
         self.write_file()
 
+        # create average for each measurement
         avg_loudness = np.sum(self.loudness_array, 0) / self.loudness_array.shape[0]
         avg_dyn_rng = np.sum(self.dyn_rng_array, 0) / self.dyn_rng_array.shape[0]
         max_true_peak = np.max(self.true_peak_array, 0)
@@ -203,7 +204,7 @@ class Engine:
         print('Average Loudness: {}\nAverage Dynamic Range: {}\n Max True Peak: {}'.format(avg_loudness,
                                                                                                avg_dyn_rng,
                                                                                                max_true_peak))
-
+        # plot average dynamic range bar graph
         plot_freqs = np.geomspace(20, 2e4, len(avg_loudness))
         animate = PlotBarGraph(plot_freqs)
         animate.plot_histogram(avg_loudness, max_true_peak)
