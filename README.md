@@ -35,10 +35,11 @@ spectral loudness currently only support 48kHz, 16-bit stereo wav files.
 FUNCTIONAL HIERARCHY:
 
 - spectral_loudness.audio.engine.Engine() - class that runs audio playback, animation and filter/loudness processing
-- spectral_loudness.audio.bandpass.Bandpass() - filters audio with n FIR bandpass filters
+- spectral_loudness.audio.bandpass.BandpassFilterBank() - filters audio with n FIR bandpass filters
 - spectral_loudness.audio.loudness.Loudness() - measures loudness (lufs) and true peak for each frequency buffer
+- spectral_loudness.audio.loudness.Fifo() - fifo for loudness measurement
 - spectral_loudness.plotting.animate.Animation() - runs animation during playback
 - spectral_loudness.plotting.animate.Histogram() - generates peak and loudness histograms for animation
-- spectral_loudness.plotting.animate.BarGraph() - generates average peak and loudness bar graph displayed and the end of playback.
+- spectral_loudness.plotting.animate.PlotBarGraph() - generates average peak and loudness bar graph displayed and the end of playback.
 
 note: all other files were used for testing or reference and should be ignored.
