@@ -121,3 +121,4 @@ class Animate:
     def run(self):
         ani = animation.FuncAnimation(self.fig, self.update, self.gen_function, interval=100, blit=True)
         plt.show()
+        plt.close()

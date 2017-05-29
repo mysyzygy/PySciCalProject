@@ -97,8 +97,9 @@ class Loudness(object):
                            0.0148925781250,  0.0330810546875,  0.0292968750000,  0.0109863281250,
                           -0.0083007812500, -0.0189208984375, -0.0291748046875,  0.0017089843750])
 
-        true_peak_result = round(np.max(20 * np.log10(abs(self.normalize(
-                                     signal.resample_poly(buffer, 4, 4, window=coeffs))))), 2)
+        resampled = signal.resample_poly(buffer, 4, 4, window=coeffs)
+        resampled[resampled == 0] = 1.5848931925e-05
+        true_peak_result = round(np.max(20 * np.log10(abs(self.normalize(resampled)))), 2)
         return true_peak_result
 
     def measure_loudness(self, freq):

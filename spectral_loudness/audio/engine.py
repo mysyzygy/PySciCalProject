@@ -42,11 +42,10 @@ class Engine:
             raise ValueError('spectral loudness only supports stereo 48kHz, 16-bit wav files.')
 
         # create first buffer
-        self.pad = np.zeros((self.numtaps, 2))
+        self.pad = np.zeros((self.numtaps, 2)) + 1.5848931925e-05
         self.data_start = np.append(self.pad, self.data, 0)
 
         # create final buffer
-        self.pad = np.zeros((self.numtaps, 2))
         self.data_end = np.append(self.data, self.pad, 0)
 
         # create result arrays
