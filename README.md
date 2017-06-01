@@ -18,7 +18,7 @@ and create a musical genre predictor.
 
 DEPENDENCIES:
 - python 3.4.2
-- numpy, scipy, matplotlib, pylab, sounddevice, pandas, mpl_toolkits
+- numpy, scipy, matplotlib, pylab, sounddevice, pandas, mpl_toolkits, sklearn
 
 TO RUN:
 
