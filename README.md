@@ -20,13 +20,13 @@ DEPENDENCIES:
 - python 3.4.2
 - numpy, scipy, matplotlib, pylab, sounddevice, pandas, mpl_toolkits, sklearn
 
-TO RUN:
+TO RUN ANALYZER:
 
 $ python spectral_loudness.py -i '/path/to/file.wav'
 
 MACHINE LEARNING:
 
-PySciCal_Project_machine_learning.py was created with a Jupyter notebook
+$ python PySciCal_Project_machine_learning.py
 
 NOTES:
 
