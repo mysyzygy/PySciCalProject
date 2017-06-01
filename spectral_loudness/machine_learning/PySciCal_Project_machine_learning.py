@@ -66,8 +66,8 @@ def dataset_array(music1_folder, music2_folder, label1, label2):
 
 # In[13]:
 
-dataset = dataset_array(music1_folder='/Users/pyu18/Documents/PySciCalProject-master/spectral_loudness/wav_data/classical/npy_files/*.npy' ,
-                        music2_folder='/Users/pyu18/Documents/PySciCalProject-master/spectral_loudness/wav_data/pop/npy_files/*.npy' ,
+dataset = dataset_array(music1_folder='../wav_data/classical/*dyn.npy' ,
+                        music2_folder='../wav_data/pop/*dyn.npy' ,
                         label1 = 'pop', label2= 'classical')
 
 
